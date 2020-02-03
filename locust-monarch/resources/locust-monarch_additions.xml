@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+<!-- add any <class> elements here -->
+	<class name="Gene" extends="SequenceFeature" is-interface="true"> 
+		<collection name="monarchDiseaseAnnotations" referenced-type="MonarchDiseaseAnnotation"/>
+		<collection name="monarchPhenotypeAnnotations" referenced-type="MonarchPhenotypeAnnotation"/>
+		<collection name="phenotypes" referenced-type="Phenotype" reverse-reference="genes"/>
+		<collection name="homologues" referenced-type="Homologue" reverse-reference="gene"/>
+		<collection name="orthologueDiseases" referenced-type="OrthologueDisease"/>
+		<collection name="orthologuePhenotypes" referenced-type="OrthologuePhenotype"/>
+	</class>
+	<class name="MonarchDiseaseAnnotation" extends="OntologyAnnotation" is-interface="true"> </class>
+	<class name="MonarchPhenotypeAnnotation" extends="OntologyAnnotation" is-interface="true"> </class>
+	<class name="MonarchDiseaseTerm" extends="OntologyTerm" is-interface="true"> </class>
+	<class name="MonarchPhenotypeTerm" extends="OntologyTerm" is-interface="true"> </class>
+	<class name="OrthologueDisease" extends="Homologue" is-interface="true">
+		<collection name="monarchDiseaseTerms" referenced-type="MonarchDiseaseTerm"/>
+	</class>
+	<class name="OrthologuePhenotype" extends="Homologue" is-interface="true">
+		<collection name="monarchPhenotypeTerms" referenced-type="MonarchPhenotypeTerm"/>
+	</class>
+	<class name="Homologue" is-interface="true">
+		<attribute name="homologueBootstrapScore" type="java.lang.Integer"/>
+		<attribute name="type" type="java.lang.String"/>
+		<attribute name="bootstrapScore" type="java.lang.Integer"/>
+		<attribute name="inParanoidScore" type="java.lang.Double"/>
+		<attribute name="clusterName" type="java.lang.String"/>
+		<reference name="homologueProtein" referenced-type="Protein"/>
+		<reference name="protein" referenced-type="Protein"/>
+		<reference name="gene" referenced-type="Gene" reverse-reference="homologues"/>
+		<reference name="homologue" referenced-type="Gene"/>
+		<collection name="evidence" referenced-type="OrthologueEvidence"/>
+		<collection name="dataSets" referenced-type="DataSet"/>
+		<collection name="phenotypes" referenced-type="Phenotype" reverse-reference="homologues"/>
+	</class>
+	<class name="Phenotype" extends="OntologyTerm" is-interface="true">
+		<attribute name="code" type="java.lang.String"/>
+		<reference name="species" referenced-type="Organism"/>
+		<collection name="homologues" referenced-type="Homologue" reverse-reference="phenotypes"/>
+		<collection name="genes" referenced-type="Gene" reverse-reference="phenotypes"/>
+	</class>
+	<class name="OrthologueEvidence" is-interface="true">
+		<reference name="evidenceCode" referenced-type="OrthologueEvidenceCode"/>
+		<collection name="publications" referenced-type="Publication"/>
+	</class>
+	<class name="OrthologueEvidenceCode" is-interface="true">
+		<attribute name="abbreviation" type="java.lang.String"/>
+		<attribute name="name" type="java.lang.String"/>
+	</class>
+
+</classes>

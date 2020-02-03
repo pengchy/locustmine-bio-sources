@@ -1,0 +1,29 @@
+rootProject.name = 'bio-sources'
+include ':bio-source-locust-scaffold'
+project(':bio-source-locust-scaffold').projectDir = new File(settingsDir, './locust-scaffold')
+include ':bio-source-locust-gene-gff'
+project(':bio-source-locust-gene-gff').projectDir = new File(settingsDir, './locust-gene-gff')
+include ':bio-source-locust-cds'
+project(':bio-source-locust-cds').projectDir = new File(settingsDir, './locust-cds')
+include ':bio-source-locust-protein'
+project(':bio-source-locust-protein').projectDir = new File(settingsDir, './locust-protein')
+include ':bio-source-locust-protein2ipr'
+project(':bio-source-locust-protein2ipr').projectDir = new File(settingsDir, './locust-protein2ipr')
+include ':bio-source-locust-kegg-pathway'
+project(':bio-source-locust-kegg-pathway').projectDir = new File(settingsDir, './locust-kegg-pathway')
+include ':bio-source-locust-gene-expression'
+project(':bio-source-locust-gene-expression').projectDir = new File(settingsDir, './locust-gene-expression')
+include ':bio-source-locust-orthodb-og'
+project(':bio-source-locust-orthodb-og').projectDir = new File(settingsDir, './locust-orthodb-og')
+include ':bio-source-locust-homolog'
+project(':bio-source-locust-homolog').projectDir = new File(settingsDir, './locust-homolog')
+include ':bio-source-locust-network'
+project(':bio-source-locust-network').projectDir = new File(settingsDir, './locust-network')
+include ':bio-source-locust-gsets-gmt'
+project(':bio-source-locust-gsets-gmt').projectDir = new File(settingsDir, './locust-gsets-gmt')
+include ':bio-source-locust-monarch'
+project(':bio-source-locust-monarch').projectDir = new File(settingsDir, './locust-monarch')
+include ':bio-source-locust-function-unknown'
+project(':bio-source-locust-function-unknown').projectDir = new File(settingsDir, './locust-function-unknown')
+include ':bio-source-locust-anatomy-expression'
+project(':bio-source-locust-anatomy-expression').projectDir = new File(settingsDir, './locust-anatomy-expression')

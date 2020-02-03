@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+<!-- add any <class> elements here -->
+	<class name="AnatomyExpression" is-interface="true">
+		<reference name="gene" referenced-type="Gene" reverse-reference="anatomyExpressions"/>
+		<reference name="anatomyTerm" referenced-type="AnatomyTerm" reverse-refernece="anatomyExpressions"/>
+		<attribute name="expressionRPKMMin" type="java.lang.Float"/>
+		<attribute name="expressionRPKM1stQu" type="java.lang.Float"/>
+		<attribute name="expressionRPKMMedian" type="java.lang.Float"/>
+		<attribute name="expressionRPKMMean" type="java.lang.Float"/>
+		<attribute name="expressionRPKM3rdQu" type="java.lang.Float"/>
+		<attribute name="expressionRPKMMax" type="java.lang.Float"/>
+		<attribute name="expressionRankMin" type="java.lang.Float"/>
+		<attribute name="expressionRank1stQu" type="java.lang.Float"/>
+		<attribute name="expressionRankMedian" type="java.lang.Float"/>
+		<attribute name="expressionRankMean" type="java.lang.Float"/>
+		<attribute name="expressionRank3rdQu" type="java.lang.Float"/>
+		<attribute name="expressionRankMax" type="java.lang.Float"/>
+		<collection name="dataSets" referenced-type="DataSet"/>
+	</class>
+	<class name="AnatomyTerm" extends="OntologyTerm" is-interface="true">
+		<collection name="anatomyExpressions" referenced-type="AnatomyExpression" reverse-reference="anatomyTerm"/>
+	</class>
+	<class name="Gene" extends="SequenceFeature" is-interface="true">
+		<collection name="anatomyExpressions" referenced-type="AnatomyExpression" reverse-reference="gene"/>
+	</class>
+
+</classes>

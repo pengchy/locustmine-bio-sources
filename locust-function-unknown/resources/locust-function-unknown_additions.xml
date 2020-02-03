@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+<!-- add any <class> elements here -->
+	<class name="FunctionOfAssociatedGene" is-interface="true">
+		<reference name="gene" referenced-type="Gene" reverse-reference="functionOfAssociatedGenes"/>
+		<attribute name="FunctionDB" type="java.lang.String"/>
+		<attribute name="identifier" type="java.lang.String"/>
+		<attribute name="name" type="java.lang.String"/>
+		<attribute name="geneInFunctionSet" type="java.lang.Double"/>
+		<attribute name="geneInFunctionDB" type="java.lang.Double"/>
+		<attribute name="geneAssociated" type="java.lang.Double"/>
+	</class>
+	<class name="Gene" extends="SequenceFeature" is-interface="true">
+		<collection name="functionOfAssociatedGenes" referenced-type="FunctionOfAssociatedGene" reverse-reference="gene"/>
+	</class>
+
+</classes>
